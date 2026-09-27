@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café BH — Mais que café, uma experiência cinematográfica</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    
+    
+</head>
+<body class="bg-[#0b0705] text-[#e8dfd8] antialiased overflow-x-hidden selection:bg-[#c88d51] selection:text-black">
+
+    <div id="cursorDot" class="fixed top-0 left-0 w-2 h-2 bg-[#d4af37] rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 hidden lg:block"></div>
+    <div id="cursorOutline" class="fixed top-0 left-0 w-8 h-8 border border-[#d4af37]/40 rounded-full pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 hidden lg:block transition-all duration-100 ease-out"></div>
+
+    <header id="mainHeader" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-6 px-6 lg:px-12 bg-[#0b0705]/80 backdrop-blur-md border-b border-[#3d261a]/30">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full border border-[#c88d51]/40 flex items-center justify-center bg-[#1c120c]">
+                    <span class="font-serif italic text-[#c88d51] font-bold">BH</span>
+                </div>
+                <span class="font-serif text-xl tracking-wider text-[#f5ebd9] font-bold">CAFÉ BH</span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-8 text-xs uppercase tracking-widest font-medium text-[#b8a394]">
+                <a href="#hero" class="hover:text-[#c88d51] transition-colors">Início</a>
+                <a href="#historia" class="hover:text-[#c88d51] transition-colors">História</a>
+                <a href="#produtos" class="hover:text-[#c88d51] transition-colors">Coleção</a>
+                <a href="#processo" class="hover:text-[#c88d51] transition-colors">Processo</a>
+                <a href="#depoimentos" class="hover:text-[#c88d51] transition-colors">Depoimentos</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <button id="openProjectFilesBtn" class="px-4 py-2 rounded-xl bg-[#1c120c] border border-[#c88d51]/30 hover:border-[#c88d51] text-[#d4af37] text-xs font-semibold flex items-center gap-2 transition-all">
+                    <i data-lucide="folder-git-2" class="w-4 h-4"></i>
+                    <span class="hidden sm:inline">Ver Código</span>
+                </button>
+                
+                <button id="mobileMenuToggle" class="md:hidden text-[#f5ebd9] p-2">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobileMenu" class="hidden md:hidden pt-4 pb-6 px-4 border-t border-[#3d261a]/40 mt-4 space-y-3 bg-[#0b0705]">
+            <a href="#hero" class="mobile-link block text-sm text-[#b8a394] hover:text-[#c88d51]">Início</a>
+            <a href="#historia" class="mobile-link block text-sm text-[#b8a394] hover:text-[#c88d51]">História</a>
+            <a href="#produtos" class="mobile-link block text-sm text-[#b8a394] hover:text-[#c88d51]">Coleção</a>
+            <a href="#processo" class="mobile-link block text-sm text-[#b8a394] hover:text-[#c88d51]">Processo</a>
+            <button id="openProjectFilesBtnMobile" class="w-full text-left py-2 text-xs text-[#d4af37] font-semibold flex items-center gap-2">
+                <i data-lucide="folder-git-2" class="w-4 h-4"></i> Estrutura do Projeto
+            </button>
+        </div>
+    </header>
+
+    <section id="hero" class="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
+        <!-- Looping Coffee Beans Background Video -->
+        <video class="absolute inset-0 z-0 h-full w-full object-cover opacity-70 pointer-events-none" autoplay muted loop playsinline preload="metadata" poster="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=1600&auto=format&fit=crop" aria-hidden="true" tabindex="-1">
+            <source src="./assets/coffee-beans-loop.mp4" type="video/mp4">
+        </video>
+
+        <!-- Ambient Lighting Gradients -->
+        <div class="absolute inset-0 bg-radial-vignette pointer-events-none z-10"></div>
+        <div class="absolute -top-40 -left-40 w-96 h-96 bg-[#c88d51]/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-80 h-80 bg-[#d4af37]/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-20 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Column Text Content -->
+                <div class="lg:col-span-7 text-center lg:text-left space-y-8">
+                    <div id="heroSubtitle" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#c88d51]/30 bg-[#1c120c]/80 backdrop-blur-md shadow-lg">
+                        <span class="w-2 h-2 rounded-full bg-[#c88d51] animate-ping"></span>
+                        <span class="text-xs uppercase tracking-widest text-[#d4af37] font-semibold">Grãos Especiais • 100% Arábica de BH</span>
+                    </div>
+
+                    <h1 id="heroTitle" class="text-5xl sm:text-6xl lg:text-7xl font-serif font-bold text-[#f5ebd9] leading-[1.1] tracking-tight">
+                        A Arte Suprema do <br>
+                        <span class="gold-gradient italic font-normal">Café Artesanal</span>
+                    </h1>
+
+                    <p id="heroDesc" class="text-lg sm:text-xl text-[#b8a394] font-light max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Experimente grãos selecionados à mão nas serras mineiras, torrados com precisão artesanal para despertar notas sensoriais inigualáveis em cada xícara.
+                    </p>
+
+                    <div id="heroButtons" class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#produtos" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-[#c88d51] to-[#8c562b] text-white font-semibold text-center shadow-2xl hover:shadow-[#c88d51]/30 hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-3">
+                            <span>Explorar Nosso Menu</span>
+                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#processo" class="w-full sm:w-auto px-8 py-4 rounded-xl border border-[#c88d51]/40 bg-[#140c08]/60 hover:bg-[#1c120c] text-[#f5ebd9] font-medium text-center backdrop-blur-md hover:border-[#c88d51] transition-all duration-300">
+                            Nossa Torra Especial
+                        </a>
+                    </div>
+
+                    <!-- Metrics Badges -->
+                    <div class="grid grid-cols-3 gap-6 pt-8 border-t border-[#3d261a]/60 max-w-lg mx-auto lg:mx-0">
+                        <div>
+                            <div class="text-2xl lg:text-3xl font-serif font-bold text-[#f5ebd9]">88+</div>
+                            <div class="text-xs text-[#a08a7a] mt-1">Pontos SCA</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl lg:text-3xl font-serif font-bold text-[#f5ebd9]">100%</div>
+                            <div class="text-xs text-[#a08a7a] mt-1">Sustentável</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl lg:text-3xl font-serif font-bold text-[#f5ebd9]">BH</div>
+                            <div class="text-xs text-[#a08a7a] mt-1">Origem Única</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column Hyper-Realistic Asset Card -->
+                <div class="lg:col-span-5 relative flex justify-center">
+                    <div class="relative w-full max-w-md aspect-square rounded-3xl p-1 bg-gradient-to-b from-[#c88d51]/40 via-[#3d261a]/20 to-transparent shadow-2xl backdrop-blur-sm group">
+                        <div class="w-full h-full rounded-[22px] bg-[#120a06] overflow-hidden relative border border-[#3d261a]">
+                            <!-- High-Definition Photorealistic Roasted Coffee Macro Background -->
+                            <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=1000&auto=format&fit=crop" 
+                                 alt="Grãos de Café Especial BH em Detalhe Macro High-Res" 
+                                 class="w-full h-full object-cover opacity-85 scale-105 group-hover:scale-110 transition-transform duration-700 ease-out" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0b0705] via-transparent to-black/30"></div>
+                            
+                            <!-- Floating Card Tag -->
+                            <div class="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-[#140d08]/85 backdrop-blur-md border border-[#c88d51]/30 shadow-xl flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-[#c88d51]/20 flex items-center justify-center border border-[#c88d51]/40 text-[#d4af37]">
+                                    <i data-lucide="sparkles" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-[#f5ebd9]">Grãos Realistas 3D Interativos</h4>
+                                    <p class="text-xs text-[#a08a7a]">Mova o cursor para interagir com a gravidade dos grãos</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+        <!-- TRANSITION DIVIDER -->
+        <div class="relative h-24 bg-gradient-to-b from-transparent via-coffee-950/80 to-coffee-950 border-t border-amber-gold/10"></div>
+
+        <!-- NOSSA HISTÓRIA SECTION -->
+        <section id="historia" class="relative py-28 bg-coffee-950 overflow-hidden">
+            <!-- Background Ambient Glow -->
+            <div class="absolute top-1/3 left-0 w-96 h-96 bg-amber-warm/5 rounded-full blur-[150px] pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                    
+                    <!-- Left Column: Story Content -->
+                    <div class="lg:col-span-6 space-y-6">
+                        <div class="inline-flex items-center gap-2">
+                            <span class="w-8 h-[1px] bg-amber-gold"></span>
+                            <span class="text-amber-gold text-xs uppercase tracking-[0.3em] font-semibold">NOSSA HISTÓRIA</span>
+                        </div>
+
+                        <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-cream-50 leading-tight">
+                            Tradição que nasce <br>
+                            <span class="font-editorial italic font-normal text-amber-gold">da própria terra</span>.
+                        </h2>
+
+                        <p class="text-cream-200/80 text-base font-light leading-relaxed">
+                            Fundado em 2010 no coração de Minas Gerais, o Café BH nasceu do desejo inabalável de elevar a cultura do café brasileiro ao padrão das grandes maisons do mundo.
+                        </p>
+
+                        <p class="text-cream-200/70 text-sm font-light leading-relaxed">
+                            Cada grão é colhido manualmente nas mais elevadas altitudes do Sul de Minas, onde o microclima único e o solo vulcânico rico conferem notas sensoriais inconfundíveis — do chocolate amargo às frutas vermelhas silvestres.
+                        </p>
+
+                        <!-- Quote Card -->
+                        <div class="p-6 rounded-2xl glass-card border-l-2 border-l-amber-gold mt-6">
+                            <p class="font-editorial italic text-lg text-cream-100">
+                                "Não vendemos apenas uma bebida aquecida. Servimos um ritual diário de desaceleração e contemplação."
+                            </p>
+                            <span class="block text-xs uppercase tracking-widest text-amber-gold mt-3 font-semibold">— Mestre Torrefador, Café BH</span>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Macro Visual with Depth Parallax -->
+                    <div class="lg:col-span-6 relative">
+                        <div id="storyImageWrapper" class="relative rounded-3xl overflow-hidden border border-amber-gold/20 shadow-2xl group">
+                            <!-- High Resolution Macro Coffee Image Placeholder -->
+                            <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=1200&auto=format&fit=crop" 
+                                 alt="Grãos de café de alta qualidade" 
+                                 class="w-full h-[450px] sm:h-[550px] object-cover object-center transform group-hover:scale-105 transition-transform duration-1000">
+                            
+                            <!-- Dark Gradient Vignette Overlay -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-coffee-950 via-transparent to-transparent opacity-80"></div>
+
+                            <!-- Floating Badge Overlay -->
+                            <div class="absolute bottom-6 left-6 right-6 p-6 glass-card rounded-2xl border border-amber-gold/20 backdrop-blur-md">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <span class="block text-xs uppercase tracking-wider text-amber-gold font-semibold">Origem Única</span>
+                                        <span class="text-sm font-serif text-cream-50">Serra da Mantiqueira, MG</span>
+                                    </div>
+                                    <div class="w-10 h-10 rounded-full border border-amber-gold/30 flex items-center justify-center text-amber-gold">
+                                        <i data-lucide="map-pin" class="w-5 h-5"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- PRODUTOS SECTION -->
+        <section id="produtos" class="relative py-28 bg-cream-100 text-coffee-950 overflow-hidden">
+            <!-- Cream Subtle Pattern -->
+            <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#140E0B_1px,transparent_1px)] [background-size:16px_16px]"></div>
+
+            <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-20 space-y-4">
+                    <div class="inline-flex items-center justify-center gap-2">
+                        <span class="w-8 h-[1px] bg-coffee-800"></span>
+                        <span class="text-coffee-800 text-xs uppercase tracking-[0.3em] font-semibold">NOSSA COLEÇÃO</span>
+                        <span class="w-8 h-[1px] bg-coffee-800"></span>
+                    </div>
+
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-coffee-950">
+                        Sabores que <span class="font-editorial italic font-normal text-amber-bronze">conectam pessoas</span>.
+                    </h2>
+
+                    <p class="text-coffee-700 text-base font-light">
+                        Selecção exclusiva de grãos especiais 100% Arábica, torrados semanalmente em lotes numerados e limitados.
+                    </p>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    
+                    <!-- Product Card 1 -->
+                    <div class="product-card bg-white rounded-3xl p-6 border border-cream-300 shadow-xl flex flex-col justify-between relative group">
+                        <div class="absolute top-4 right-4 bg-amber-gold/15 text-coffee-900 text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full">
+                            Suave
+                        </div>
+                        
+                        <div class="relative h-60 my-4 flex items-center justify-center overflow-hidden rounded-2xl bg-cream-50">
+                            <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?q=80&w=600&auto=format&fit=crop" 
+                                 alt="Café Clássico" 
+                                 class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                        </div>
+
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-1 text-amber-bronze">
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                <span class="text-xs text-coffee-600 ml-1 font-medium">(4.9)</span>
+                            </div>
+
+                            <h3 class="text-xl font-serif font-bold text-coffee-950">Café Clássico</h3>
+                            <p class="text-xs text-coffee-700 leading-relaxed font-light">
+                                Notas doces de caramelo, chocolate ao leite e acidez cítrica equilibrada. Ideal para o dia a dia.
+                            </p>
+
+                            <div class="pt-4 border-t border-cream-200 flex items-center justify-between">
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-wider text-coffee-600">250g • Grãos</span>
+                                    <span class="text-2xl font-serif font-bold text-coffee-950">R$ 49,90</span>
+                                </div>
+                                <button class="w-10 h-10 rounded-full bg-coffee-950 text-amber-gold flex items-center justify-center hover:bg-amber-bronze hover:text-coffee-950 transition-colors shadow-md">
+                                    <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 2 -->
+                    <div class="product-card bg-white rounded-3xl p-6 border border-cream-300 shadow-xl flex flex-col justify-between relative group">
+                        <div class="absolute top-4 right-4 bg-coffee-950 text-amber-gold text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full">
+                            Intenso
+                        </div>
+                        
+                        <div class="relative h-60 my-4 flex items-center justify-center overflow-hidden rounded-2xl bg-cream-50">
+                            <img src="https://images.unsplash.com/photo-1587734195503-904fca47e0e9?q=80&w=600&auto=format&fit=crop" 
+                                 alt="Café Intenso" 
+                                 class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                        </div>
+
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-1 text-amber-bronze">
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                <span class="text-xs text-coffee-600 ml-1 font-medium">(5.0)</span>
+                            </div>
+
+                            <h3 class="text-xl font-serif font-bold text-coffee-950">Café Intenso</h3>
+                            <p class="text-xs text-coffee-700 leading-relaxed font-light">
+                                Torra escura artesanal, corpo aveludado e marcantes notas de cacau 70% e nozes assadas.
+                            </p>
+
+                            <div class="pt-4 border-t border-cream-200 flex items-center justify-between">
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-wider text-coffee-600">250g • Grãos</span>
+                                    <span class="text-2xl font-serif font-bold text-coffee-950">R$ 54,90</span>
+                                </div>
+                                <button class="w-10 h-10 rounded-full bg-coffee-950 text-amber-gold flex items-center justify-center hover:bg-amber-bronze hover:text-coffee-950 transition-colors shadow-md">
+                                    <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 3 -->
+                    <div class="product-card bg-white rounded-3xl p-6 border border-cream-300 shadow-xl flex flex-col justify-between relative group">
+                        <div class="absolute top-4 right-4 bg-amber-bronze text-white text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full">
+                            Exclusivo
+                        </div>
+                        
+                        <div class="relative h-60 my-4 flex items-center justify-center overflow-hidden rounded-2xl bg-cream-50">
+                            <img src="https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?q=80&w=600&auto=format&fit=crop" 
+                                 alt="Café Gourmet" 
+                                 class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                        </div>
+
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-1 text-amber-bronze">
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                <span class="text-xs text-coffee-600 ml-1 font-medium">(4.9)</span>
+                            </div>
+
+                            <h3 class="text-xl font-serif font-bold text-coffee-950">Café Gourmet</h3>
+                            <p class="text-xs text-coffee-700 leading-relaxed font-light">
+                                Microlote premiado com aroma floral e retrogosto prolongado de mel e especiarias amarelas.
+                            </p>
+
+                            <div class="pt-4 border-t border-cream-200 flex items-center justify-between">
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-wider text-coffee-600">250g • Grãos</span>
+                                    <span class="text-2xl font-serif font-bold text-coffee-950">R$ 59,90</span>
+                                </div>
+                                <button class="w-10 h-10 rounded-full bg-coffee-950 text-amber-gold flex items-center justify-center hover:bg-amber-bronze hover:text-coffee-950 transition-colors shadow-md">
+                                    <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 4 -->
+                    <div class="product-card bg-white rounded-3xl p-6 border border-cream-300 shadow-xl flex flex-col justify-between relative group">
+                        <div class="absolute top-4 right-4 bg-emerald-800 text-emerald-100 text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full">
+                            Eco Bio
+                        </div>
+                        
+                        <div class="relative h-60 my-4 flex items-center justify-center overflow-hidden rounded-2xl bg-cream-50">
+                            <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=600&auto=format&fit=crop" 
+                                 alt="Café Orgânico" 
+                                 class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                        </div>
+
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-1 text-amber-bronze">
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                <span class="text-xs text-coffee-600 ml-1 font-medium">(4.8)</span>
+                            </div>
+
+                            <h3 class="text-xl font-serif font-bold text-coffee-950">Café Orgânico</h3>
+                            <p class="text-xs text-coffee-700 leading-relaxed font-light">
+                                Cultivo sustentável sombreado sem insumos químicos. Notas limpas de canela e açúcar mascavo.
+                            </p>
+
+                            <div class="pt-4 border-t border-cream-200 flex items-center justify-between">
+                                <div>
+                                    <span class="block text-[10px] uppercase tracking-wider text-coffee-600">250g • Grãos</span>
+                                    <span class="text-2xl font-serif font-bold text-coffee-950">R$ 55,90</span>
+                                </div>
+                                <button class="w-10 h-10 rounded-full bg-coffee-950 text-amber-gold flex items-center justify-center hover:bg-amber-bronze hover:text-coffee-950 transition-colors shadow-md">
+                                    <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- PROCESSO SECTION -->
+        <section id="processo" class="relative py-28 bg-coffee-900 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+                
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-20 space-y-4">
+                    <div class="inline-flex items-center justify-center gap-2">
+                        <span class="w-8 h-[1px] bg-amber-gold"></span>
+                        <span class="text-amber-gold text-xs uppercase tracking-[0.3em] font-semibold">NOSSO PROCESSO</span>
+                        <span class="w-8 h-[1px] bg-amber-gold"></span>
+                    </div>
+
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-cream-50">
+                        Do campo à <span class="font-editorial italic font-normal text-amber-gold">sua xícara</span>.
+                    </h2>
+                </div>
+
+                <!-- Process Steps Timeline -->
+                <div class="relative">
+                    <!-- Dynamic Progress Line (GSAP animated) -->
+                    <div class="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-coffee-800 -translate-y-1/2 z-0">
+                        <div id="processProgressLine" class="h-full bg-amber-gold w-0 transition-all"></div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+                        
+                        <!-- Step 1 -->
+                        <div class="process-step-card glass-card p-6 rounded-3xl border border-amber-gold/20 flex flex-col justify-between space-y-6">
+                            <div class="flex items-center justify-between">
+                                <span class="font-serif text-4xl text-amber-gold font-bold">01</span>
+                                <div class="w-10 h-10 rounded-full bg-coffee-800 flex items-center justify-center text-amber-gold">
+                                    <i data-lucide="sprout" class="w-5 h-5"></i>
+                                </div>
+                            </div>
+                            <div class="h-40 rounded-2xl overflow-hidden reveal-clip">
+                                <img src="https://images.unsplash.com/photo-1524350876685-274059332603?q=80&w=600&auto=format&fit=crop" alt="Cultivo" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-serif font-bold text-cream-50 mb-2">Cultivo Consciente</h3>
+                                <p class="text-xs text-cream-200/70 leading-relaxed font-light">
+                                    Plantações em solo mineralizado em alta altitude na Serra da Mantiqueira com irrigação por gotejamento.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="process-step-card glass-card p-6 rounded-3xl border border-amber-gold/20 flex flex-col justify-between space-y-6">
+                            <div class="flex items-center justify-between">
+                                <span class="font-serif text-4xl text-amber-gold font-bold">02</span>
+                                <div class="w-10 h-10 rounded-full bg-coffee-800 flex items-center justify-center text-amber-gold">
+                                    <i data-lucide="hand" class="w-5 h-5"></i>
+                                </div>
+                            </div>
+                            <div class="h-40 rounded-2xl overflow-hidden reveal-clip">
+                                <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=600&auto=format&fit=crop" alt="Colheita" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-serif font-bold text-cream-50 mb-2">Colheita Seletiva</h3>
+                                <p class="text-xs text-cream-200/70 leading-relaxed font-light">
+                                    Apenas os frutos maduros em estágio "cereja" são colhidos à mão para garantir máxima doçura natural.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="process-step-card glass-card p-6 rounded-3xl border border-amber-gold/20 flex flex-col justify-between space-y-6">
+                            <div class="flex items-center justify-between">
+                                <span class="font-serif text-4xl text-amber-gold font-bold">03</span>
+                                <div class="w-10 h-10 rounded-full bg-coffee-800 flex items-center justify-center text-amber-gold">
+                                    <i data-lucide="flame" class="w-5 h-5"></i>
+                                </div>
+                            </div>
+                            <div class="h-40 rounded-2xl overflow-hidden reveal-clip">
+                                <img src="https://images.unsplash.com/photo-1518832553480-cd0e625ed3e6?q=80&w=600&auto=format&fit=crop" alt="Torra" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-serif font-bold text-cream-50 mb-2">Torra Mestre</h3>
+                                <p class="text-xs text-cream-200/70 leading-relaxed font-light">
+                                    Torra artesanal monitorada por curvas térmicas computadorizadas para ressaltar o perfil sensorial de cada lote.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="process-step-card glass-card p-6 rounded-3xl border border-amber-gold/20 flex flex-col justify-between space-y-6">
+                            <div class="flex items-center justify-between">
+                                <span class="font-serif text-4xl text-amber-gold font-bold">04</span>
+                                <div class="w-10 h-10 rounded-full bg-coffee-800 flex items-center justify-center text-amber-gold">
+                                    <i data-lucide="coffee" class="w-5 h-5"></i>
+                                </div>
+                            </div>
+                            <div class="h-40 rounded-2xl overflow-hidden reveal-clip">
+                                <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=600&auto=format&fit=crop" alt="Sua Xícara" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-serif font-bold text-cream-50 mb-2">Sua Xícara</h3>
+                                <p class="text-xs text-cream-200/70 leading-relaxed font-light">
+                                    Embalagens com válvula desgaseificadora e selo nitro para preserve o aroma de recém-torrado até a sua mesa.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DEPOIMENTOS SECTION -->
+        <section id="depoimentos" class="relative py-28 bg-coffee-950 overflow-hidden">
+            <div class="max-w-5xl mx-auto px-6 md:px-12 relative z-10 text-center">
+                
+                <i data-lucide="quote" class="w-12 h-12 text-amber-gold/30 mx-auto mb-6"></i>
+
+                <div id="testimonialContainer" class="min-h-[220px] flex items-center justify-center">
+                    <!-- Testimonial Item 1 -->
+                    <div class="testimonial-slide space-y-6 max-w-3xl">
+                        <p class="font-serif text-xl sm:text-2xl md:text-3xl text-cream-50 font-light leading-relaxed">
+                            "Um dos melhores cafés que já experimentei. A experiência começa no aroma inebriante da embalagem e culmina no último gole aveludado da manhã."
+                        </p>
+                        <div>
+                            <h4 class="font-semibold text-amber-gold text-sm tracking-widest uppercase">Mariana Almeida</h4>
+                            <span class="text-xs text-cream-300/50">Sommelier de Vinhos & Entusiasta de Gastronomia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial Indicators Nav -->
+                <div class="flex justify-center items-center gap-3 mt-8">
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-amber-gold transition-all" data-index="0"></button>
+                    <button class="testimonial-dot w-2 h-2 rounded-full bg-coffee-800 transition-all" data-index="1"></button>
+                    <button class="testimonial-dot w-2 h-2 rounded-full bg-coffee-800 transition-all" data-index="2"></button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- FINAL CTA SECTION -->
+        <section id="cta" class="relative py-32 bg-coffee-900 overflow-hidden flex items-center justify-center">
+            <!-- Background Macro Image Overlay -->
+            <div class="absolute inset-0 z-0 opacity-20">
+                <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=1600&auto=format&fit=crop" alt="Background Coffee Beans" class="w-full h-full object-cover">
+            </div>
+
+            <!-- Warm Radial Glow -->
+            <div class="absolute w-[600px] h-[600px] bg-amber-warm/15 rounded-full blur-[160px] pointer-events-none"></div>
+
+            <div class="max-w-4xl mx-auto px-6 text-center relative z-10 space-y-8">
+                <h2 class="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-cream-50 leading-tight">
+                    O seu próximo café <br>
+                    <span class="font-editorial italic font-normal text-amber-gold">começa aqui</span>.
+                </h2>
+
+                <p class="text-cream-200/80 text-base sm:text-lg max-w-xl mx-auto font-light">
+                    Descubra cafés selecionados nas melhores altitudes do Brasil e transforme seu ritual diário de café numa experiência memorável.
+                </p>
+
+                <div class="pt-4">
+                    <a href="#produtos" class="inline-flex items-center gap-3 px-10 py-5 rounded-full bg-gradient-to-r from-amber-gold to-amber-bronze text-coffee-950 font-bold text-xs uppercase tracking-widest hover:brightness-110 shadow-2xl shadow-amber-gold/20 transition-all transform hover:scale-105">
+                        <span>Explorar Cafés Especiais</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-coffee-950 border-t border-amber-gold/15 py-16 relative z-10 text-cream-300/70 text-xs">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-12">
+            
+            <!-- Brand Column -->
+            <div class="md:col-span-4 space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full border border-amber-gold/40 flex items-center justify-center bg-coffee-900">
+                        <span class="font-editorial italic text-amber-gold font-bold">BH</span>
+                    </div>
+                    <span class="font-serif text-lg tracking-wider text-cream-50 font-bold">CAFÉ BH</span>
+                </div>
+                <p class="font-light text-cream-300/60 leading-relaxed max-w-sm">
+                    Cafés especiais produzidos com paixão, rigor técnico e torra artesanal desde 2010.
+                </p>
+                <span class="block text-[10px] text-amber-gold/80 tracking-widest uppercase">© 2026 Café BH — Todos os direitos reservados.</span>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="md:col-span-3 space-y-3">
+                <h4 class="text-cream-50 font-serif font-bold uppercase tracking-wider text-xs">Navegação</h4>
+                <ul class="space-y-2 font-light">
+                    <li><a href="#hero" class="hover:text-amber-gold transition-colors">Início</a></li>
+                    <li><a href="#historia" class="hover:text-amber-gold transition-colors">Nossa História</a></li>
+                    <li><a href="#produtos" class="hover:text-amber-gold transition-colors">Nossa Coleção</a></li>
+                    <li><a href="#processo" class="hover:text-amber-gold transition-colors">Processo de Torra</a></li>
+                </ul>
+            </div>
+
+            <!-- Social Links -->
+            <div class="md:col-span-3 space-y-3">
+                <h4 class="text-cream-50 font-serif font-bold uppercase tracking-wider text-xs">Redes & Atendimento</h4>
+                <ul class="space-y-2 font-light">
+                    <li><a href="#" class="hover:text-amber-gold transition-colors flex items-center gap-2"><i data-lucide="instagram" class="w-3.5 h-3.5"></i> @cafebh_especiais</a></li>
+                    <li><a href="#" class="hover:text-amber-gold transition-colors flex items-center gap-2"><i data-lucide="message-circle" class="w-3.5 h-3.5"></i> WhatsApp Atendimento</a></li>
+                    <li><a href="#" class="hover:text-amber-gold transition-colors flex items-center gap-2"><i data-lucide="mail" class="w-3.5 h-3.5"></i> contato@cafebh.com.br</a></li>
+                </ul>
+            </div>
+
+            <!-- Location info -->
+            <div class="md:col-span-2 space-y-3">
+                <h4 class="text-cream-50 font-serif font-bold uppercase tracking-wider text-xs">Origem</h4>
+                <p class="font-light leading-relaxed">
+                    Belo Horizonte — MG<br>
+                    Brasil
+                </p>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- VIRTUAL PROJECT FILES MODAL (Shows organized project files as requested) -->
+    <div id="projectModal" class="fixed inset-0 bg-black/80 backdrop-blur-xl z-[10000] hidden flex-col">
+        <!-- Modal Top Bar -->
+        <div class="bg-coffee-950 border-b border-amber-gold/20 px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <i data-lucide="folder-git-2" class="w-5 h-5 text-amber-gold"></i>
+                <span class="font-serif font-bold text-cream-50 text-sm tracking-wide">Estrutura do Projeto — cafe-bh/</span>
+            </div>
+            <button id="closeModalBtn" class="text-cream-200 hover:text-amber-gold p-1">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Modal Content: File Tabs & View -->
+        <div class="flex-1 flex flex-col md:flex-row overflow-hidden">
+            <!-- Sidebar File Selector -->
+            <div class="w-full md:w-64 bg-coffee-900/90 border-r border-amber-gold/15 p-4 space-y-2">
+                <span class="text-[10px] uppercase font-semibold text-amber-gold tracking-widest block mb-2">Arquivos Virtuais</span>
+                <button class="file-tab w-full flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-mono text-left bg-amber-gold/20 text-amber-gold border border-amber-gold/30" data-file="html">
+                    <i data-lucide="file-code" class="w-4 h-4"></i> index.html
+                </button>
+                <button class="file-tab w-full flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-mono text-left text-cream-200 hover:bg-coffee-800" data-file="css">
+                    <i data-lucide="file-text" class="w-4 h-4"></i> style.css
+                </button>
+                <button class="file-tab w-full flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-mono text-left text-cream-200 hover:bg-coffee-800" data-file="js">
+                    <i data-lucide="file-json" class="w-4 h-4"></i> script.js
+                </button>
+                <button class="file-tab w-full flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-mono text-left text-cream-200 hover:bg-coffee-800" data-file="readme">
+                    <i data-lucide="book-open" class="w-4 h-4"></i> README.md
+                </button>
+            </div>
+
+            <!-- Code Viewer Display -->
+            <div class="flex-1 bg-coffee-950 p-6 overflow-auto font-mono text-xs text-cream-100">
+                <pre id="codeDisplayArea" class="whitespace-pre-wrap leading-relaxed text-amber-light/90">Carregando código...</pre>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="./scrips/main.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,156 @@
+ /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f0a07; }
+        ::-webkit-scrollbar-thumb { background: #3d261a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #c88d51; }
+
+        .bean-glow {
+            filter: drop-shadow(0px 15px 25px rgba(0, 0, 0, 0.8));
+        }
+
+        .product-card {
+            color: #24170f;
+        }
+
+        .product-card h3 {
+            color: #24170f;
+            font-size: 1.375rem;
+        }
+
+        .product-card p {
+            color: #514237;
+            font-size: 0.9375rem;
+            font-weight: 400;
+            line-height: 1.65;
+        }
+
+        .product-card > div.absolute {
+            background-color: #3d281b;
+            color: #fff;
+        }
+
+        .product-card .text-amber-bronze {
+            color: #9a5b20;
+        }
+
+        .product-card .text-coffee-600 {
+            color: #665548;
+        }
+
+        .product-card .text-coffee-950 {
+            color: #24170f;
+        }
+
+        .product-card span.text-xs {
+            font-size: 0.8125rem;
+        }
+
+        .product-card span.text-2xl {
+            color: #24170f;
+            font-size: 1.75rem;
+        }
+
+        .product-card .border-t {
+            border-color: #ded5cc;
+        }
+
+        .process-step-card {
+            --process-enter-delay: 0ms;
+            --process-float-delay: 0ms;
+            --process-float-duration: 4.2s;
+            transform-style: preserve-3d;
+            transform-origin: center bottom;
+            transition: translate 450ms cubic-bezier(0.2, 0.8, 0.2, 1), scale 450ms cubic-bezier(0.2, 0.8, 0.2, 1), border-color 350ms ease, box-shadow 450ms ease;
+            will-change: translate;
+        }
+
+        .process-step-card:nth-child(2) {
+            --process-enter-delay: 120ms;
+            --process-float-delay: -700ms;
+            --process-float-duration: 4.8s;
+        }
+
+        .process-step-card:nth-child(3) {
+            --process-enter-delay: 240ms;
+            --process-float-delay: -1.3s;
+            --process-float-duration: 5.2s;
+        }
+
+        .process-step-card:nth-child(4) {
+            --process-enter-delay: 360ms;
+            --process-float-delay: -1.9s;
+            --process-float-duration: 4.6s;
+        }
+
+        .process-step-card.is-visible:not(.gsap-card-entrance-active):not(.gsap-card-entrance-done) {
+            animation: process-card-enter 900ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+            animation-delay: var(--process-enter-delay);
+        }
+
+        .process-step-card.is-floating {
+            animation: process-card-float var(--process-float-duration) ease-in-out infinite;
+            animation-delay: var(--process-float-delay);
+        }
+
+        .process-step-card:hover,
+        .process-step-card:focus-within {
+            translate: 0 -10px;
+            scale: 1.025;
+            border-color: rgba(212, 175, 55, 0.85);
+            box-shadow: 0 26px 60px rgba(0, 0, 0, 0.32), 0 0 28px rgba(200, 141, 81, 0.16);
+            z-index: 20;
+        }
+
+        .process-step-card .reveal-clip img {
+            transition: transform 800ms cubic-bezier(0.2, 0.8, 0.2, 1), filter 800ms ease;
+        }
+
+        .process-step-card:hover .reveal-clip img,
+        .process-step-card:focus-within .reveal-clip img {
+            transform: scale(1.1);
+            filter: saturate(1.12) brightness(1.08);
+        }
+
+        .process-step-card > div:first-child > span,
+        .process-step-card > div:first-child > div {
+            transition: transform 500ms cubic-bezier(0.2, 0.8, 0.2, 1), color 350ms ease, background-color 350ms ease;
+        }
+
+        .process-step-card:hover > div:first-child > span,
+        .process-step-card:focus-within > div:first-child > span {
+            transform: translateX(5px);
+            color: #f5ebd9;
+        }
+
+        .process-step-card:hover > div:first-child > div,
+        .process-step-card:focus-within > div:first-child > div {
+            transform: rotate(10deg) scale(1.1);
+            background-color: rgba(200, 141, 81, 0.2);
+        }
+
+        @keyframes process-card-enter {
+            from {
+                opacity: 0;
+                transform: perspective(900px) translate3d(0, 46px, 0) rotateX(8deg) scale(0.96);
+            }
+            to {
+                opacity: 1;
+                transform: perspective(900px) translate3d(0, 0, 0) rotateX(0) scale(1);
+            }
+        }
+
+        @keyframes process-card-float {
+            0%, 100% { translate: 0 0; }
+            50% { translate: 0 -9px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .process-step-card.is-floating {
+                animation: none;
+            }
+
+            .process-step-card,
+            .process-step-card .reveal-clip img {
+                transition-duration: 180ms;
+            }
+        }
